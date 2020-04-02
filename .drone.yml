@@ -1,11 +1,14 @@
----
 kind: pipeline
-type: docker
+name: default
 
 steps:
   - name: backend
     image: golang:1.13.6-alpine
+    environment:
+      TOKEN:
+        from_secret: demo_token
     commands:
       - go build
       - go test
       - echo "DONE"
+    
