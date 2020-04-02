@@ -1,0 +1,11 @@
+---
+kind: pipeline
+type: docker
+
+steps:
+  - name: backend
+    image: golang:1.13.6-alpine
+    commands:
+      - go build
+      - go test
+      - echo "DONE"
